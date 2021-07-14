@@ -1,0 +1,35 @@
+Author: Alberto Bella
+
+# Project: project
+
+ds prop box size:
+	# x1 y1 x2 y2 (inverted: original)
+	(14, 29, 50, 64) -> 957.114 : 36 [horz]
+	(12, 29, 52, 64) -> 880.314 : 40 [horz]
+	(11, 29, 53, 64) -> 803.514 : 42 [horz]
+	(14, 29, 50, 64) -> 957.114 : 36 [horz]
+	(12, 29, 52, 64) -> 880.314 : 40 [horz]
+	*
+	1000.0 : 34.66 # lin regress
+
+	box: 0.05 x 0.1 x 0.1
+	(-1.9e-18, 0.049, 1.83)
+
+	robot:
+	(28, 31, 36, 46) -> (-5.06e-07, 0.074, 1.0249) # z**
+	(28, 31, 36, 47) -> (-5.13e-07, 0.074, 1.0556)
+
+	sensor:
+	(0, -0.01, 0.26)
+
+angle_x = 0
+
+# # identify angle from reference
+    # # x reference
+    # if 179 < angle_x < 359:
+    #     angle_x = 360 - round(np.degrees(np.arccos(compass.getValues()[0])), 2) # continue
+    # else:
+    #     angle_x = round(np.degrees(np.arccos(compass.getValues()[0])), 2)
+    
+    # print('x angle:', angle_x)
+    # print(compass.getValues()[1])

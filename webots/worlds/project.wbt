@@ -1,0 +1,268 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation -0.9999972547622934 0.002258283622512424 0.0006249983656173721 0.5400014114294256
+  position 0.06191133786589165 4.4808603392805235 7.27779355465306
+}
+TexturedBackgroundLight {
+  luminosity 0.3
+}
+Robot {
+  translation 0 0.19 0
+  children [
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.28 -0.02 0.15
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation 0.28 -0.02 0.15
+        rotation -3.1401791501118063e-16 7.850447875279516e-17 1 1.5707999999999998
+        children [
+          DEF WHEEL Shape {
+            appearance Appearance {
+              material Material {
+                emissiveColor 0.5 0 0
+              }
+            }
+            geometry Cylinder {
+              height 0.05
+              radius 0.06
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.28 -0.02 -0.15
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation 0.28 -0.02 -0.15
+        rotation 1.5700898153576195e-16 -7.850449076788098e-17 1 1.570799693899574
+        children [
+          USE WHEEL
+        ]
+        name "solid(2)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.28 -0.02 0.15
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+        }
+      ]
+      endPoint DEF WHEEL3 Solid {
+        translation -0.28 -0.02 0.15
+        rotation 3.9252245383940463e-16 1.5700898153576185e-16 1 1.5707996938995756
+        children [
+          USE WHEEL
+        ]
+        name "solid(3)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.28 -0.02 -0.15
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+        }
+      ]
+      endPoint DEF WHEEL4 Solid {
+        translation -0.28 -0.02 -0.15
+        rotation 0 -1.570089815357619e-16 1 1.5707996938995747
+        children [
+          USE WHEEL
+        ]
+        name "solid(4)"
+        boundingObject USE WHEEL
+        physics Physics {
+        }
+      }
+    }
+    DEF BODY Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.5 0.5 0.5
+        }
+      }
+      geometry Box {
+        size 0.5 0.1 0.5
+      }
+    }
+    GPS {
+      translation 0 0.05 0
+      children [
+        DEF GPS Shape {
+          appearance Appearance {
+            material Material {
+            }
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.02
+          }
+        }
+      ]
+      boundingObject USE GPS
+      physics Physics {
+      }
+    }
+    Compass {
+      boundingObject USE GPS
+      physics Physics {
+      }
+    }
+    Camera {
+      translation 0 0.022 0.25
+      rotation 2.830819999985027e-06 -0.9999999999947107 1.6015799999915287e-06 3.14159
+      children [
+        DEF CAMERA Shape {
+          appearance Appearance {
+            material Material {
+              emissiveColor 0.2 0 0
+            }
+          }
+          geometry Sphere {
+            radius 0.01
+          }
+        }
+      ]
+      boundingObject USE CAMERA
+      physics Physics {
+      }
+    }
+    DistanceSensor {
+      translation 0 -0.01 0.26
+      rotation 0 1 0 -1.5707996938995747
+    }
+    Display {
+    }
+  ]
+  boundingObject DEF BODY Shape {
+    appearance Appearance {
+      material Material {
+        emissiveColor 0.5 0.5 0.5
+      }
+    }
+    geometry Box {
+      size 0.5 0.1 0.5
+    }
+  }
+  physics Physics {
+  }
+  controller "project"
+}
+Background {
+  skyColor [
+    1 1 1
+  ]
+}
+RectangleArena {
+  floorSize 5 5
+  floorAppearance Parquetry {
+    type "chequered"
+    colorOverride 0 0.7 1
+  }
+}
+DEF BOX1 Solid {
+  translation 0.01 0.1 1.84
+  children [
+    DEF BOX Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0 1 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  boundingObject USE BOX
+  physics Physics {
+  }
+}
+DEF BOX2 Solid {
+  translation 2.03 0.1 0.06
+  children [
+    DEF BOX Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE BOX
+  physics Physics {
+  }
+}
+DEF SPHERE1 Solid {
+  translation 0.01 0.1 -1.71
+  children [
+    DEF SPHERE Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 1 0 0
+        }
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE SPHERE
+  physics Physics {
+  }
+}
+DEF SPHERE2 Solid {
+  translation -2.06 0.1 0.09
+  children [
+    DEF SPHERE Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0 1 0
+        }
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE SPHERE
+  physics Physics {
+  }
+}
